@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    volumes:
+      - '.:/code'
+    ports:
+      - '8000:8000'
+    restart: 'no'
+    environment:
+      - DEBUG=True
+    entrypoint: /code/scripts/local_entrypoint.sh

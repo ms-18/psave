@@ -7,11 +7,14 @@ RUN mkdir /code
 
 WORKDIR /code
 
-COPY ./Pipfile /code/
-
 RUN pip install --upgrade pip
 RUN pip install pipenv
-RUN pipenv lock -r > requirements.txt
-RUN pip install -r requirements.txt
+
+COPY Pipfile Pipfile.lock /code/
+
+RUN pipenv install --system
 
 COPY . /code/
+
+RUN chmod -R u+x /code/scripts
+RUN ls -l /code/scripts
