@@ -9,4 +9,7 @@ services:
     restart: 'no'
     environment:
       - DEBUG=True
-    entrypoint: /code/scripts/local_entrypoint.sh
+    command: "python3 manage.py runserver 0:8000"
+
+  db:
+    restart: 'no'

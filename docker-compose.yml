@@ -9,10 +9,11 @@ services:
       - psave.env
     depends_on:
       - db
-    command: python3 ./manage.py runserver 127.0.0.1:8000
+    command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8000
   db:
     container_name: psave_db
     image: postgres
+    restart: always
     env_file:
       - psave.env
     expose:

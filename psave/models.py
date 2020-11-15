@@ -9,8 +9,7 @@ class Host(models.Model):
 
 class Data(models.Model):
     host = models.ForeignKey(to=Host, on_delete=models.CASCADE)
-    # date = autofilled date field or date from form request body?
     cpu = models.FloatField()
-    processes = fields.ArrayField(base_field=fields.JSONField)
-    memory = fields.JSONField()
-    disk = fields.JSONField()
+    processes = fields.ArrayField(base_field=models.JSONField())
+    memory = models.JSONField()
+    disk = models.JSONField()

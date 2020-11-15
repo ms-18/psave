@@ -16,5 +16,4 @@ RUN pipenv install --system
 
 COPY . /code/
 
-RUN chmod -R u+x /code/scripts
-RUN ls -l /code/scripts
+ENTRYPOINT ["/code/scripts/local_entrypoint.sh"]
