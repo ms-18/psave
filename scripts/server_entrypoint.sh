@@ -4,6 +4,6 @@
 
 sleep 3
 
-su app -s /bin/sh -c "python3 ./manage.py migrate --noinput"
+python3 ./manage.py migrate --noinput
 
-exec "@"
+exec "$@"
