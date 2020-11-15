@@ -46,7 +46,7 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 # copy entrypoint-prod.sh
-COPY ./server_entrypoint.sh $APP_HOME
+COPY ./scripts/server_entrypoint.sh $APP_HOME
 
 # copy project
 COPY . $APP_HOME
