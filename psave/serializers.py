@@ -6,4 +6,4 @@ class DataSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Data
-        fields = ['host', 'cpu', 'processes', 'memory', 'disk']
+        fields = ['host', 'cpu', 'processes', 'memory', 'disk', 'date']
