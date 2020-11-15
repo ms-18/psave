@@ -2,7 +2,7 @@
 
 # wait for postgres to become available before running migrations
 
-while ! (test -e $PGDATA/pg-init-done); do
+while ! nc -z $SQL_HOST $SQL_PORT; do
   >&2 echo "Postgres is unavailable - sleeping"
   sleep 1
 done
