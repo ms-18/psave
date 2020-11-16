@@ -19,11 +19,7 @@ RUN apk update \
 RUN pip install --upgrade pip
 RUN pip install pipenv
 
-# install dependencies
-COPY ./Pipfile ./Pipfile.lock ./
-RUN pipenv install --system
 
-COPY . .
 
 
 #########
@@ -32,6 +28,12 @@ COPY . .
 
 # pull official base image
 FROM python:3.8.3-alpine
+
+# install dependencies
+COPY ./Pipfile ./Pipfile.lock ./
+RUN pipenv install --system
+
+COPY . .
 
 # create directory for the app user
 RUN mkdir -p /home/app
