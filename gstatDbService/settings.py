@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', "secret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'gstatDbService.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'psave_db',
+        'NAME': os.environ.get('POSTGRES_DB', "psave"),
+        'USER': os.environ.get('POSTGRES_USER', "psave"),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', "psave"),
+        'HOST': "psave_db"
     }
 }
 
