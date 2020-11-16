@@ -1,12 +1,6 @@
-###########
-# BUILDER #
-###########
 
 # pull official base image
-FROM python:3.8.3-alpine as builder
-
-# set work directory
-WORKDIR /usr/src/app
+FROM python:3.8.3-alpine
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -17,17 +11,6 @@ RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev
 
 RUN pip install --upgrade pip
-
-
-
-
-
-#########
-# FINAL #
-#########
-
-# pull official base image
-FROM python:3.8.3-alpine
 
 RUN pip install pipenv
 # install dependencies
